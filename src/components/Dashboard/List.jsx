@@ -44,7 +44,7 @@ function List({ hov, coin }) {
           </Tooltip>
 
           <Tooltip title="Price Change In 24Hrs" placement="bottom-start">
-            <td className="text-left w-[18%]">
+            <td className="text-left w-[50%] sm:w-[18%]">
               <div className="text-xl flex justify-start gap-4 items-center mx-4 my-6">
                 <div
                   className={`${

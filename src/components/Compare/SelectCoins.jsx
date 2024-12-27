@@ -3,7 +3,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { get100Coins } from '../../functions/get100Coins';
 
-function SelectCoins({ crypto1, crypto2, handleCoinChange }) {
+function SelectCoins({ crypto1,setLoading , crypto2, handleCoinChange }) {
   const [allCoins, setAllCoins] = useState([]);
 
   const style = {
@@ -21,19 +21,22 @@ function SelectCoins({ crypto1, crypto2, handleCoinChange }) {
       },
     },
   };
+  
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
+    setLoading(true);
     try {
       const myCoins = await get100Coins();
-      console.log(myCoins)
-        setAllCoins(myCoins);
+      setAllCoins(myCoins);
     } catch (error) {
       console.error("Error fetching coin data:", error);
       setAllCoins([]);
+    } finally{
+      setLoading(false);
     }
   };
 

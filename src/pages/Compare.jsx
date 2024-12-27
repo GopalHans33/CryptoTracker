@@ -121,9 +121,9 @@ function Compare() {
         <Loader />
       ) : (
         <div>
-          <div className="flex justify-start items-center m-6 gap-8">
+          <div className="flex-wrap sm:flex sm:justify-start justify-center items-center m-6 gap-8">
             <SelectCoins crypto1={crypto1} crypto2={crypto2} handleCoinChange={handleCoinChange} />
-            <SelectDays days={days} handleDaysChange={handleDaysChange} isPTag={true} />
+            <SelectDays days={days} setLoading={setLoading} handleDaysChange={handleDaysChange} isPTag={true} />
           </div>
           <div className="bg-[#1d2942] rounded-xl my-1">
             <List hov={false} coin={crypto1Data} />
